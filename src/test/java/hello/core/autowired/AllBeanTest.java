@@ -37,7 +37,10 @@ public class AllBeanTest {
   }
 
   static class DiscountService {
+    //discountpolicy 구현체 빈들을 전부 map안에 주입해줌
     private final Map<String, DiscountPolicy> policyMap;
+
+    //discountpolicy 구현체 빈들을 전부 list안에 주입해줌
     private final List<DiscountPolicy> policies;
 
     @Autowired
