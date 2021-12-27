@@ -1,5 +1,7 @@
 package hello.core.singleton;
 
+import static org.assertj.core.api.Assertions.*;
+
 import hello.core.AppConfig;
 import hello.core.member.MemberService;
 import org.assertj.core.api.Assertions;
@@ -21,7 +23,20 @@ public class SingleTonTest {
     System.out.println("memberService1 = " + memberService1);
     System.out.println("memberService2 = " + memberService2);
 
-    Assertions.assertThat(memberService1).isNotSameAs(memberService2);
+    assertThat(memberService1).isNotSameAs(memberService2);
   }
 
+  @Test
+  public void 싱글톤_패턴_적용한_객체_사용() throws Exception{
+    //given
+    SingletonService instance = SingletonService.getInstance();
+    SingletonService instance2 = SingletonService.getInstance();
+    //then
+    System.out.println("instance = " + instance);
+    System.out.println("instance2 = " + instance2);
+
+    assertThat(instance).isSameAs(instance2);
+    //equals 논리적 동치성
+    //same 물리적 동치성
+  }
 }
